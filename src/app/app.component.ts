@@ -3,6 +3,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { auth } from 'firebase';
 import { DataService } from './shared/services/data.service';
 
+import { Store } from '@ngrx/store';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
