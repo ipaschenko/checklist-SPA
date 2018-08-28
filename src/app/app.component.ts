@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { auth } from 'firebase';
 import { DataService } from './shared/services/data.service';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,8 @@ import { DataService } from './shared/services/data.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(public afAuth: AngularFireAuth, private dataService: DataService) {
+  // TODO RootState
+  constructor(public afAuth: AngularFireAuth, private dataService: DataService, private store: Store<any>) {
   }
 
   ngOnInit() {
@@ -18,6 +20,7 @@ export class AppComponent implements OnInit {
   }
 
   login() {
+    this.store.dispatch( new )
     this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
     console.log('afAuth.user ', this.afAuth.user);
   }
