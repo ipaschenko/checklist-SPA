@@ -7,23 +7,23 @@ export const initialState = {
 export function userReducer(state = initialState, action: UserActions) {
   switch (action.type) {
     case UserActionsTypes.GET_USER: {
-      return { ...state, ...action.payload};
+      return { ...state, loading: true};
     }
 
     case UserActionsTypes.AUTHENTICATED: {
-      return { ...state, ...action.payload};
+      return { ...state, ...action.payload, loading: false};
     }
 
     case UserActionsTypes.NOT_AUTHENTICATED: {
-      return { ...state, ...action.payload};
+      return { ...state, ...action.payload, loading: false};
     }
 
     case UserActionsTypes.GOOGLE_LOGIN: {
-      return { ...state, ...action.payload};
+      return { ...state, loading: true};
     }
 
     case UserActionsTypes.LOGOUT: {
-      return { ...state, ...action.payload};
+      return { ...state, loading: true};
     }
 
     default: {

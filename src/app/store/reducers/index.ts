@@ -1,17 +1,5 @@
-import {
-  ActionReducerMap,
-  createSelector,
-  createFeatureSelector,
-  ActionReducer,
-  MetaReducer,
-} from '@ngrx/store';
+import {User} from '../models/user.model';
 
-import * as fromLangs from './langs.reducer';
-
-export interface State {
-  langs: fromLangs.State;
+export interface AppState {
+  user: User;
 }
-
-export const reducers = {
-  langs: fromLangs.reducer
-};

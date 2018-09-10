@@ -4,23 +4,27 @@ import { auth } from 'firebase';
 import { DataService } from './shared/services/data.service';
 import { Store } from '@ngrx/store';
 
+import * as userActions from './store/actions/user.actions';
+import {AppState} from './store/reducers';
+import {GetUser} from './store/actions/user.actions';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  user$ = this.store$.select('user');
 
   // TODO RootState
-  constructor(public afAuth: AngularFireAuth, private dataService: DataService, private store: Store<any>) {
+  constructor(public afAuth: AngularFireAuth, private dataService: DataService, private store$: Store<AppState>) {
   }
 
   ngOnInit() {
-    this.dataService.getData().subscribe((res) => console.log(res));
+    this.store$.dispatch(new userActions.GetUser());
   }
 
-  login() {
-    this.store.dispatch( new )
+  googleLogin() {
     this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
     console.log('afAuth.user ', this.afAuth.user);
   }
