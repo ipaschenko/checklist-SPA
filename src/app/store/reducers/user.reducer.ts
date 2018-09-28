@@ -1,10 +1,10 @@
 import {UserActionsTypes, UserActions} from '../actions/user.actions';
+import { User } from '../models/user.model';
 
-export const initialState = {
-  user: null,
-}
+const defaultUser = new User(null, '');
 
-export function userReducer(state = initialState, action: UserActions) {
+
+export function userReducer(state = defaultUser, action: UserActions) {
   switch (action.type) {
     case UserActionsTypes.GET_USER: {
       return { ...state, loading: true};
@@ -15,10 +15,11 @@ export function userReducer(state = initialState, action: UserActions) {
     }
 
     case UserActionsTypes.NOT_AUTHENTICATED: {
-      return { ...state, ...action.payload, loading: false};
+      return { ...state, ...defaultUser, loading: false};
     }
 
     case UserActionsTypes.GOOGLE_LOGIN: {
+      console.log('UserActionsTypes.GOOGLE_LOGIN');
       return { ...state, loading: true};
     }
 

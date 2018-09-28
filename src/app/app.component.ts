@@ -22,13 +22,22 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.store$.dispatch(new userActions.GetUser());
+    console.log(1);
   }
 
+  // googleLogin() {
+  //   this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+  //   console.log('afAuth.user ', this.afAuth.user);
+  // }
+
   googleLogin() {
-    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
-    console.log('afAuth.user ', this.afAuth.user);
+    this.store$.dispatch(new userActions.GoogleLogin());
+    // this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+    // console.log('afAuth.user ', this.afAuth.user);
   }
+
   logout() {
-    this.afAuth.auth.signOut();
+    this.store$.dispatch(new userActions.Logout());
+    // this.afAuth.auth.signOut();
   }
 }

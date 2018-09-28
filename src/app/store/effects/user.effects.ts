@@ -8,20 +8,19 @@ import { Action } from '@ngrx/store';
 import {catchError, delay, map, switchMap, tap} from 'rxjs/operators';
 import { fromPromise } from 'rxjs/internal-compatibility';
 import {IUser, User} from '../models/user.model';
+import { UserActionsTypes } from '../actions/user.actions';
 
 @Injectable()
 export class UserEffects {
-  constructor(private actions$: Actions<fromUser.UserActions>,
+  constructor(private actions$: Actions<fromUser.UserActionsTypes>,
               private afAuth: AngularFireAuth) {
   }
 
-  @Effect({dispatch: false})
+  @Effect()
   getUser$ = this.actions$.pipe(
-    ofType('GET_USER'),
-    tap(() => console.log(111)),
+    ofType(UserActionsTypes.GET_USER),
     map((action: fromUser.GetUser) => action.payload),
     switchMap((payload) => this.afAuth.authState),
-    delay(1000),
     map((userData: IUser) => {
       if (userData) {
         const user = new User(userData.uid, userData.displayName);
@@ -34,13 +33,20 @@ export class UserEffects {
 
   @Effect()
   googleLogin$ = this.actions$.pipe(
-    ofType('GOOGLE_LOGIN'),
+    ofType(UserActionsTypes.GOOGLE_LOGIN),
     switchMap(() => fromPromise(this.googleLogin())),
     map((creds) => new fromUser.GetUser()),
     catchError((err) => {
       console.log('Err ', err);
       return EMPTY;
     }),
+  );
+
+  @Effect()
+  logout$ = this.actions$.pipe(
+    ofType(UserActionsTypes.LOGOUT),
+    switchMap((payload) => this.afAuth.auth.signOut()),
+    map(() => new fromUser.NotAuthenticated()),
   );
 
   private googleLogin() {

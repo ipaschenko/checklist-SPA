@@ -1,9 +1,13 @@
-<div *ngIf="user$ | async as user; else showLogin">
+<div *ngIf="(user$ | async) as user">
+  <pre>
+    <!--{{user | json}}-->
+  </pre>
   <h5 style="color: grey">Hello {{ user.displayName }}!</h5>
-  <button (click)="logout()">Logout</button>
+
+  <pre>
+    {{user | json}}
+  </pre>
+  <button *ngIf="!user.uid" (click)="googleLogin()">Login with Google</button>
+  <button *ngIf="user.uid" (click)="logout()">Logout</button>
 </div>
-<ng-template #showLogin>
-  <p>Please login.</p>
-  <button (click)="googleLogin()">Login with Google</button>
-</ng-template>
 
