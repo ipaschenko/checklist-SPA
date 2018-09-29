@@ -1,0 +1,3 @@
+
+<button *ngIf="!user.uid" (click)="googleLogin()" type="button" class="btn">Login with Google</button>
+<button *ngIf="user.uid" (click)="logout()"  type="button" class="btn">Logout</button>

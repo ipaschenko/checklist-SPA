@@ -1,3 +1,8 @@
+<div class="container-fluid">
+  <div class="app-header"></div>
+</div>
+
+
 <div *ngIf="(user$ | async) as user">
   <pre>
     <!--{{user | json}}-->
@@ -7,7 +12,7 @@
   <pre>
     {{user | json}}
   </pre>
-  <button *ngIf="!user.uid" (click)="googleLogin()">Login with Google</button>
-  <button *ngIf="user.uid" (click)="logout()">Logout</button>
+  <button *ngIf="!user.uid" (click)="googleLogin()" type="button" class="btn">Login with Google</button>
+  <button *ngIf="user.uid" (click)="logout()"  type="button" class="btn">Logout</button>
 </div>
 

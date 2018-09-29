@@ -12,7 +12,7 @@ import { UserActionsTypes } from '../actions/user.actions';
 
 @Injectable()
 export class UserEffects {
-  constructor(private actions$: Actions<fromUser.UserActionsTypes>,
+  constructor(private actions$: Actions<fromUser.UserActions>,
               private afAuth: AngularFireAuth) {
   }
 
