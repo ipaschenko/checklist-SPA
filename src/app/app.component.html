@@ -1,18 +1,4 @@
 <div class="container-fluid">
-  <div class="app-header"></div>
-</div>
-
-
-<div *ngIf="(user$ | async) as user">
-  <pre>
-    <!--{{user | json}}-->
-  </pre>
-  <h5 style="color: grey">Hello {{ user.displayName }}!</h5>
-
-  <pre>
-    {{user | json}}
-  </pre>
-  <button *ngIf="!user.uid" (click)="googleLogin()" type="button" class="btn">Login with Google</button>
-  <button *ngIf="user.uid" (click)="logout()"  type="button" class="btn">Logout</button>
+  <app-header class="row"></app-header>
 </div>
 

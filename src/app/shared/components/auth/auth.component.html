@@ -1,0 +1,8 @@
+<div *ngIf="(user$ | async) as user">
+  <button *ngIf="!user.uid" (click)="googleLogin()" type="button" class="btn">Login</button>
+  <div *ngIf="user.uid">
+    <p>{{user.displayName}}</p>
+    <button  (click)="logout()"  type="button" class="btn">Logout</button>
+  </div>
+</div>
+

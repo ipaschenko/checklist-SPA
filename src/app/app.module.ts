@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import {userReducer} from './store/reducers/user.reducer';
 import { UserEffects } from './store/effects/user.effects';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { UserEffects } from './store/effects/user.effects';
   ],
   imports: [
     BrowserModule,
+    SharedModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     EffectsModule.forRoot([UserEffects]),

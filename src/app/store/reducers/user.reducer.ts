@@ -1,13 +1,14 @@
 import {UserActionsTypes, UserActions} from '../actions/user.actions';
 import { User } from '../models/user.model';
 
-const defaultUser = new User(null, '');
+const defaultUser = new User(null, '', '');
 
 
 export function userReducer(state = defaultUser, action: UserActions) {
   switch (action.type) {
     case UserActionsTypes.GET_USER: {
-      return { ...state, loading: true};
+      console.log(action.payload);
+      return { ...state, ...action.payload, loading: true};
     }
 
     case UserActionsTypes.AUTHENTICATED: {
