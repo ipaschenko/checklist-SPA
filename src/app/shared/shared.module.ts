@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { HeaderComponent } from './components/header/header.component';
 import { CommonModule } from '@angular/common';
 import { AuthComponent } from './components/auth/auth.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 const SHARED_INSTANCES = [HeaderComponent];
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    DragDropModule,
   ],
   declarations: [
     SHARED_INSTANCES,
@@ -15,6 +17,7 @@ const SHARED_INSTANCES = [HeaderComponent];
   ],
   exports: [
     ...SHARED_INSTANCES,
+    DragDropModule,
   ],
 })
 

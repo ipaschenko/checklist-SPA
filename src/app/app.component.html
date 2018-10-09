@@ -1,4 +1,18 @@
 <div class="container-fluid">
   <app-header class="row"></app-header>
+  <div class="row">
+    <cdk-drop>
+      <div *ngFor="let item of items" cdkDrag>{{item}}</div>
+    </cdk-drop>
+
+    <cdk-drop class="col-12" style="height: 20vh; border: 1px solid #ccc" >
+      <div class="box" cdkDrag>Drag me around!</div>
+    </cdk-drop>
+    <cdk-drop class="col-12" style="height: 20vh; border: 1px solid #ccc" >
+    <div class="box" cdkDrag>Drag me around!</div>
+    </cdk-drop>
+  </div>
 </div>
+
+
 
