@@ -5,7 +5,6 @@
     <button class="btn btn-outline-primary btn-sm dropdown-toggle"
             type="button"
             (click)="tooggleUserDropdown()">{{user.displayName}}</button>
-    <!--<div class="dropdown-menu show">-->
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" [class.show]="dropdownOpen">
       <button  (click)="logout()"  type="button" class="dropdown-item">Logout</button>
     </div>

@@ -1,24 +1,27 @@
 <div class="container-fluid">
   <app-header class="row"></app-header>
   <div class="row">
-
-    <div class="col-6 drop-list"
-         cdkDropList
-         id="l1"
-         [cdkDropListData]="list1"
-         [cdkDropListConnectedTo]="['l2']"
-         (cdkDropListDropped)="drop($event)">
-      <div *ngFor="let item of list1" class="box" cdkDrag>Drag me <b>{{item}}</b></div>
+    <div class="col-6">
+      <ul class="list-group"
+          cdkDropList
+          id="l1"
+          [cdkDropListData]="list1"
+          [cdkDropListConnectedTo]="['l2']"
+          (cdkDropListDropped)="drop($event)">
+        <li *ngFor="let item of list1" class="list-group-item" cdkDrag>Drag me <b>{{item}}</b></li>
+      </ul>
     </div>
 
 
-    <div class="col-6 drop-list"
-         cdkDropList
-         id="l2"
-         [cdkDropListData]="list2"
-         [cdkDropListConnectedTo]="['l1']"
-         (cdkDropListDropped)="drop($event)">
-      <div *ngFor="let item of list2" class="box" cdkDrag>Drag me <b>{{item}}</b></div>
+    <div class="col-6">
+      <ul class="list-group"
+           cdkDropList
+           id="l2"
+           [cdkDropListData]="list2"
+           [cdkDropListConnectedTo]="['l1']"
+           (cdkDropListDropped)="drop($event)">
+        <li *ngFor="let item of list2" class="list-group-item" cdkDrag>Drag me <b>{{item}}</b></li>
+      </ul>
     </div>
 
   </div>
