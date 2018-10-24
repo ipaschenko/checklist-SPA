@@ -1,1 +1,25 @@
 @import '~bootstrap/scss/bootstrap.scss';
+
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.board {
+  @extend .row;
+  flex: 9;
+  padding: 15px 0;
+  background-color: $gray-100;
+
+  &__list {
+    flex: 9;
+  }
+  &__list-wrapper {
+    @extend .col-6;
+    @extend .d-flex;
+    @extend .flex-column;
+  }
+}
+
+

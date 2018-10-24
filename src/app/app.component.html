@@ -1,8 +1,8 @@
-<div class="container-fluid">
+<div class="container-fluid wrapper">
   <app-header class="row"></app-header>
-  <div class="row">
-    <div class="col-6">
-      <ul class="list-group"
+  <div class="board">
+    <div class="board__list-wrapper">
+      <ul class="list-group board__list"
           cdkDropList
           id="l1"
           [cdkDropListData]="list1"
@@ -13,8 +13,8 @@
     </div>
 
 
-    <div class="col-6">
-      <ul class="list-group"
+    <div class="board__list-wrapper">
+      <ul class="list-group board__list"
            cdkDropList
            id="l2"
            [cdkDropListData]="list2"
@@ -24,9 +24,6 @@
       </ul>
     </div>
 
-  </div>
-
-  <div class="row">
   </div>
 </div>
 
