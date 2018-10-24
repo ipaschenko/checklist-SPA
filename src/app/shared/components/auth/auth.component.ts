@@ -10,6 +10,7 @@ import * as userActions from '../../../store/actions/user.actions';
 })
 export class AuthComponent implements OnInit {
   user$ = this.store$.select('user');
+  dropdownOpen = false;
 
   constructor(private store$: Store<AppState>) { }
 
@@ -23,6 +24,14 @@ export class AuthComponent implements OnInit {
 
   logout() {
     this.store$.dispatch(new userActions.Logout());
+    this.closeDropdown();
   }
 
+  tooggleUserDropdown() {
+    this.dropdownOpen = !this.dropdownOpen;
+  }
+
+  closeDropdown() {
+    this.dropdownOpen = false;
+  }
 }

@@ -3,6 +3,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { CommonModule } from '@angular/common';
 import { AuthComponent } from './components/auth/auth.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ClickOutsideDirective } from './divectives/click-outside.directive';
 
 const SHARED_INSTANCES = [HeaderComponent];
 
@@ -14,6 +15,7 @@ const SHARED_INSTANCES = [HeaderComponent];
   declarations: [
     SHARED_INSTANCES,
     AuthComponent,
+    ClickOutsideDirective,
   ],
   exports: [
     ...SHARED_INSTANCES,

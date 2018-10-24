@@ -1,8 +1,14 @@
-<div *ngIf="(user$ | async) as user">
-  <button *ngIf="!user.uid" (click)="googleLogin()" type="button" class="btn">Login</button>
-  <div *ngIf="user.uid">
-    <span class="navbar-text mr-1">{{user.displayName}}</span>
-    <button  (click)="logout()"  type="button" class="btn btn-outline">Logout</button>
+<div *ngIf="(user$ | async) as user" class="float-right">
+  <button *ngIf="!user.uid" (click)="googleLogin()" type="button" class="btn btn-outline-primary btn-sm">Login</button>
+
+  <div class="dropdown" *ngIf="user.uid" (appClickOutside)="closeDropdown()">
+    <button class="btn btn-outline-primary btn-sm dropdown-toggle"
+            type="button"
+            (click)="tooggleUserDropdown()">{{user.displayName}}</button>
+    <!--<div class="dropdown-menu show">-->
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" [class.show]="dropdownOpen">
+      <button  (click)="logout()"  type="button" class="dropdown-item">Logout</button>
+    </div>
   </div>
 </div>
 
