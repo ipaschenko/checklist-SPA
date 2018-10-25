@@ -6,6 +6,7 @@
   flex-direction: column;
   min-height: 100vh;
 }
+
 .board {
   @extend .row;
   flex: 9;

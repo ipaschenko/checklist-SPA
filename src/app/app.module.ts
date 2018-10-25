@@ -5,6 +5,7 @@ import {StoreModule} from '@ngrx/store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
@@ -20,6 +21,7 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     SharedModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     AngularFireAuthModule,
     EffectsModule.forRoot([UserEffects]),
     StoreModule.forRoot({'user': userReducer}),
