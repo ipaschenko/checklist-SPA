@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import * as fromUser from '../actions/user.actions';
 import * as firebase from 'firebase';
-import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { EMPTY } from 'rxjs';
 import {catchError, delay, map, switchMap, tap} from 'rxjs/operators';
 import { fromPromise } from 'rxjs/internal-compatibility';
